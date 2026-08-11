@@ -354,16 +354,27 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Projects ---------- */
 
-.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .project-card {
+  display: block;
+  text-decoration: none;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 26px;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
-.project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-.project-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.project-card:hover, .project-card:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(11,31,58,0.10);
+}
+.project-card-pending {
+  background: var(--bg-alt);
+  border-style: dashed;
+}
+.project-card-pending:hover { border-color: var(--line); transform: none; box-shadow: none; }
+.project-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 10px; }
 .project-card h3 { font-size: 18px; margin: 0; }
 .project-tag {
   font-family: var(--font-mono);
@@ -376,10 +387,32 @@ img { max-width: 100%; display: block; }
   padding: 4px 8px;
   border-radius: 4px;
   font-weight: 600;
+  white-space: nowrap;
 }
-.project-card p { font-size: 14px; margin: 0; }
+.project-tag-pending {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: rgba(10,102,194,0.3);
+}
+.project-card p { font-size: 14px; margin: 0 0 16px; }
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.project-link span { transition: transform 0.15s ease; }
+.project-card:hover .project-link span,
+.project-card:focus-visible .project-link span { transform: translateX(4px); }
+.project-link-pending { color: var(--dim-2); }
 
-@media (max-width: 700px) { .project-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .project-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .project-grid { grid-template-columns: 1fr; } }
 
 /* ---------- Community ---------- */
 
