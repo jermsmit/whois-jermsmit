@@ -40,6 +40,10 @@ Everything is in plain HTML, so edits are direct:
   the Projects section and edit its contents.
 - **New log entry**: copy one `<div class="log-entry">` block in the Track
   Record section and edit its contents.
+- **Updating your resume**: overwrite `assets/jermal_smith_resume.pdf` with
+  a new file that has the exact same filename. The "Download Resume" link
+  on the site points to that path, so nothing in `index.html` needs to
+  change, just replace the file and push.
 
 ## Workflow for changes (branches and PRs, in simple terms)
 

@@ -438,7 +438,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Connect ---------- */
 
-.connect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.connect-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
 .connect-card {
   display: flex;
   flex-direction: column;
@@ -449,14 +449,15 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
   padding: 22px;
   transition: border-color 0.15s ease, transform 0.15s ease;
+  flex: 1 1 300px;
+  max-width: 360px;
 }
 .connect-card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .connect-primary { background: var(--accent-soft); border-color: var(--accent); }
 .connect-label { font-family: var(--font-display); font-weight: 800; color: var(--ink); font-size: 16px; }
 .connect-desc { font-size: 13px; color: var(--dim); }
 
-@media (max-width: 900px) { .connect-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .connect-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .connect-card { flex-basis: 100%; max-width: 100%; } }
 
 /* ---------- Footer ---------- */
 
