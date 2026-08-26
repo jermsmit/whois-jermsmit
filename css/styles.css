@@ -347,6 +347,60 @@ img { max-width: 100%; display: block; }
 .log-tag-active { color: var(--signal); background: var(--signal-soft); border: 1px solid rgba(31,157,85,0.3); }
 .log-tag-complete { color: var(--dim); background: var(--panel); border: 1px solid var(--line); }
 
+/* Grouped entry: one continuous employer, multiple roles nested inside */
+.log-entry-grouped {
+  grid-template-columns: 140px 1fr auto;
+  row-gap: 6px;
+}
+.log-org-block { display: flex; flex-direction: column; gap: 6px; }
+.log-org-note { font-size: 13px; color: var(--dim); font-weight: 500; max-width: 62ch; }
+.log-entry-grouped .log-tag { align-self: start; }
+
+.log-roles {
+  grid-column: 1 / -1;
+  margin-top: 14px;
+  margin-left: 2px;
+  padding-left: 22px;
+  border-left: 2px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.log-role-item { position: relative; }
+.log-role-item::before {
+  content: '';
+  position: absolute;
+  left: -27px;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.log-role-time {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.log-role-title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.log-role-detail { font-size: 13px; color: var(--dim); margin: 0; }
+
+@media (max-width: 900px) {
+  .log-entry-grouped { grid-template-columns: 1fr; }
+  .log-roles { margin-left: 0; }
+}
+
 @media (max-width: 900px) {
   .log-entry { grid-template-columns: 1fr; gap: 6px; }
   .log-tag { justify-self: start; margin-top: 4px; }
